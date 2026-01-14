@@ -10,7 +10,6 @@ import java.io.IOException;
 @RestController
 public class RestInfo {
     @GetMapping ("/info")
-
     public String getInfo() throws IOException {
         JsonCreate jsonCreate = new JsonCreate();
         return jsonCreate.getInfo();

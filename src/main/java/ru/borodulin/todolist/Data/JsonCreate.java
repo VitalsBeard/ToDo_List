@@ -12,8 +12,6 @@ import java.io.IOException;
 public class JsonCreate {
 ObjectMapper mapper = new ObjectMapper();
 File file = new File("src/main/resources/tasks.json");
-Task task = new Task();
-
 
 
     public void writeJson(Task task) throws IOException {

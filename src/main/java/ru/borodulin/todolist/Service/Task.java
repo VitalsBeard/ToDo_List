@@ -15,7 +15,7 @@ public record Task() {
     private static LocalDateTime date ;
     private static int id = 0 ;
 
-    public void Task (String title, String description, boolean completed) {
+    public void Task (String title, String description, boolean completed, LocalDateTime date, int id) {
        this.title = title;
         this.description = description;
         this.completed = completed;
