@@ -1,6 +1,5 @@
 package ru.borodulin.todolist.Data;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import ru.borodulin.todolist.Service.Task;
 import tools.jackson.databind.ObjectMapper;

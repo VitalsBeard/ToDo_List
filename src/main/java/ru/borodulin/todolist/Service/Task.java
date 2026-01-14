@@ -1,22 +1,17 @@
 package ru.borodulin.todolist.Service;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
-
 import java.time.LocalDateTime;
-import java.util.Date;
 
-@Service
-public record Task() {
+public class Task {
+
     private static String title;
     private static String description;
     private static boolean completed;
     private static LocalDateTime date ;
     private static int id = 0 ;
 
-    public void Task (String title, String description, boolean completed, LocalDateTime date, int id) {
-       this.title = title;
+    public Task (String title, String description, boolean completed, LocalDateTime date, int id) {
+        this.title = title;
         this.description = description;
         this.completed = completed;
         this.date = LocalDateTime.now();
