@@ -12,16 +12,19 @@ import java.io.IOException;
 public class JsonCreate {
 ObjectMapper mapper = new ObjectMapper();
 
-if (!file.exists()) {
-        File file = new File("src/main/resources/tasks.json");
-}
+    if (!file.exists()) {
+            File file = new File("src/main/resources/tasks.json");
+    }
+
 
 
     public void writeJson(Task task) throws IOException {
+        File file = new File("src/main/resources/tasks.json");
         mapper.writeValue(file, task);
+
     }
 
-    public String getInfo() throws IOException {
-        return mapper.readValue(file, String.class);
+    public String getInfo() throws IOException {//getALl
+        return mapper.readValue(file, List );
     }
 }

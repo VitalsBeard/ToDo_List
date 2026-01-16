@@ -15,7 +15,7 @@ public class TodoListApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TodoListApplication.class, args);
 
-			Task task = new Task("title", "description", false, null, 0);
+			Task task = new Task("title", "description", false, null, 1);
 			JsonCreate jsonCreate = new JsonCreate();
 			try {
 				jsonCreate.writeJson(task);
@@ -25,3 +25,11 @@ public class TodoListApplication {
 		}
 	}
 
+	//curl -H "Content-Type: application/json" -d '{ "title":"foo", "body":"bar", "id": 1 }'
+//https://localhost:8080/createTask
+//postman
+
+
+//Цель отработать 2 адреса
+// 1/ createTask
+// 2/ getAllTask

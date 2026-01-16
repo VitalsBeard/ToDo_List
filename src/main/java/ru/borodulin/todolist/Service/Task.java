@@ -4,57 +4,57 @@ import java.time.LocalDateTime;
 
 public class Task {
 
-    private static String title;
-    private static String description;
-    private static boolean completed;
-    private static LocalDateTime date ;
-    private static int id = 0 ;
+    private  String title;
+    private  String description;
+    private  boolean completed;
+    private  LocalDateTime date ;
+    private  int id  ;
 
     public Task (String title, String description, boolean completed, LocalDateTime date, int id) {
         this.title = title;
         this.description = description;
         this.completed = completed;
         this.date = LocalDateTime.now();
-        this.id = id++;
+        this.id = id;
     }
 
-    public static String getTitle() {
+    public  String getTitle() {
         return title;
     }
 
-    public static void setTitle(String title) {
-        Task.title = title;
+    public  void setTitle(String title) {
+        this.title = title;
     }
 
-    public static String getDescription() {
+    public  String getDescription() {
         return description;
     }
 
-    public static void setDescription(String description) {
-        Task.description = description;
+    public  void setDescription(String description) {
+        this.description = description;
     }
 
-    public static boolean isCompleted() {
+    public  boolean isCompleted() {
         return completed;
     }
 
-    public static void setCompleted(boolean completed) {
-        Task.completed = completed;
+    public  void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
-    public static LocalDateTime getDate() {
+    public  LocalDateTime getDate() {
         return date;
     }
 
-    public static void setDate(LocalDateTime date) {
-        Task.date = date;
+    public  void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
-    public static int getId() {
+    public  int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        Task.id = id;
+    public  void setId(int id) {
+        this.id = id;
     }
 }
