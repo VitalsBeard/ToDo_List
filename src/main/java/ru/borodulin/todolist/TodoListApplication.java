@@ -15,13 +15,13 @@ public class TodoListApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TodoListApplication.class, args);
 
-		Task task = new Task("title", "description", false, null, 0);
-		JsonCreate jsonCreate = new JsonCreate();
-		try {
-			jsonCreate.writeJson(task);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
+			Task task = new Task("title", "description", false, null, 0);
+			JsonCreate jsonCreate = new JsonCreate();
+			try {
+				jsonCreate.writeJson(task);
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 
-}
