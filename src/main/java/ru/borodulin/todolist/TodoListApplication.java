@@ -7,6 +7,7 @@ import ru.borodulin.todolist.Service.Task;
 import tools.jackson.databind.ext.javatime.ser.LocalDateTimeSerializer;
 
 import java.io.IOException;
+import java.net.http.HttpClient;
 import java.time.LocalDateTime;
 
 @SpringBootApplication
@@ -14,20 +15,16 @@ public class TodoListApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TodoListApplication.class, args);
+		HttpClient client = HttpClient.newHttpClient();
 
-			Task task = new Task("title", "description", false, null, 1);
-			JsonCreate jsonCreate = new JsonCreate();
-			try {
-				jsonCreate.writeJson(task);
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
+
 	}
+}
 
 	//curl -H "Content-Type: application/json" -d '{ "title":"foo", "body":"bar", "id": 1 }'
 //https://localhost:8080/createTask
-//postman
+//postman и подумать насчет list
+//TODO подумать насчет как передавать в json корреткно и как выводить просто по факту надо всего 2 задачи , внести и прочитать
 
 
 //Цель отработать 2 адреса

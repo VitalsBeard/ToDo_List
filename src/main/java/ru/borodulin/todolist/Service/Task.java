@@ -10,7 +10,7 @@ public class Task {
     private  LocalDateTime date ;
     private  int id  ;
 
-    public Task (String title, String description, boolean completed, LocalDateTime date, int id) {
+    public Task (String title, String description, boolean completed, String date, int id) {
         this.title = title;
         this.description = description;
         this.completed = completed;

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @RestController
 public class RestUpdate {
     @PutMapping ("/update")
-    public void update(String title, String description, boolean isDone, LocalDateTime date, int id) {
+    public void update(String title, String description, boolean isDone, String date, int id) {
         JsonCreate jsonCreate = new JsonCreate();
         try {
             jsonCreate.writeJson(new Task(title, description, isDone, date, id));
