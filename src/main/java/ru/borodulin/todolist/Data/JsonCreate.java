@@ -37,7 +37,7 @@ public boolean checkFile() throws IOException {
 
     }
 
-    public String getInfo() throws IOException {//getALl
+    public String getInfo(Path path) throws IOException {//getALl
         return mapper.readValue(file, String.class);
     }
 }

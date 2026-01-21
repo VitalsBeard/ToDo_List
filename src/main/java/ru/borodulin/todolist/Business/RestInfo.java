@@ -7,12 +7,15 @@ import ru.borodulin.todolist.Data.JsonCreate;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @RestController
 public class RestInfo {
     @GetMapping("/info")
     public String getInfo() throws IOException {
         JsonCreate jsonCreate = new JsonCreate();
-        return jsonCreate.getInfo();
+        Path path = Paths.get("main\\resources\\tasks.json");
+        return jsonCreate.getInfo(path);
     }
 }

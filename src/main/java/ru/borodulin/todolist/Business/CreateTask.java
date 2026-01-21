@@ -15,17 +15,22 @@ public class CreateTask  implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите название задачи: ");
-        String title = scanner.nextLine();
-        System.out.println("Введите описание задачи: ");
-        String description = scanner.nextLine();
-        System.out.println("Введите дату задачи: ");
-        String date = scanner.nextLine();
-        System.out.println("Введите id задачи: ");
-        int id = scanner.nextInt();
         JsonCreate jsonCreate = new JsonCreate();
-        jsonCreate.writeJson(new Task(title, description, false, date, id));
+
+        Scanner scanner;
+        do {
+            scanner = new Scanner(System.in);
+            System.out.println("Summary of the task: ");
+            String title = scanner.nextLine();
+            System.out.println("Description of the task: ");
+            String description = scanner.nextLine();
+            System.out.println("Date of the task: ");
+            String date = scanner.nextLine();
+            System.out.println("Id of the task: ");
+            int id = scanner.nextInt();
+            System.out.println("If you want to exit, type exit");
+            jsonCreate.writeJson(new Task(title, description, false, date, id));
+        } while (scanner.nextLine().equals("exit"));
     }
 
 }
