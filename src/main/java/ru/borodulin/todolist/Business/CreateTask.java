@@ -16,10 +16,10 @@ public class CreateTask  implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         JsonCreate jsonCreate = new JsonCreate();
+        Scanner scanner = new Scanner(System.in);
 
-        Scanner scanner;
         do {
-            scanner = new Scanner(System.in);
+
             System.out.println("Summary of the task: ");
             String title = scanner.nextLine();
             System.out.println("Description of the task: ");
@@ -30,7 +30,7 @@ public class CreateTask  implements CommandLineRunner {
             int id = scanner.nextInt();
             System.out.println("If you want to exit, type exit");
             jsonCreate.writeJson(new Task(title, description, false, date, id));
-        } while (scanner.nextLine().equals("exit"));
+        } while (!scanner.nextLine().equals("exit"));
     }
 
 }
