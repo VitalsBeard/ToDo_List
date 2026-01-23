@@ -18,8 +18,7 @@ public class CreateTask  implements CommandLineRunner {
         JsonCreate jsonCreate = new JsonCreate();
         Scanner scanner = new Scanner(System.in);
 
-        do {
-
+        while (!scanner.nextLine().equals("exit")){
             System.out.println("Summary of the task: ");
             String title = scanner.nextLine();
             System.out.println("Description of the task: ");
@@ -30,7 +29,15 @@ public class CreateTask  implements CommandLineRunner {
             int id = scanner.nextInt();
             System.out.println("If you want to exit, type exit");
             jsonCreate.writeJson(new Task(title, description, false, date, id));
-        } while (!scanner.nextLine().equals("exit"));
+        }
+    }
+    public boolean flagTrue(Scanner scanner) {
+        if (scanner.nextLine().equals("exit")) {
+            return false;
+        }
+        return true;
     }
 
 }
+
+// Создать SoftUi , надо проверять надо смотреть , уйти от консоли, сделать арихитектуру TODO

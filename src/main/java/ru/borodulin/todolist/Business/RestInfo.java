@@ -12,13 +12,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 @RestController
 public class RestInfo {
     @GetMapping("/info")
-    public String getInfo() throws Exception {
+    public List<Task> getInfo() throws Exception {
         Path path = Paths.get(getClass().getClassLoader().getResource("tasks.json").toURI());
-        return Files.readString(path);
+        return List.of(new JsonCreate().getInfo(path));
     }
     @PutMapping("/update")
     public void update(String title, String description, boolean isDone, String date, int id) {
@@ -30,3 +31,4 @@ public class RestInfo {
         }
     }
 }
+//Доделать логику рест + рефактор говнеца
