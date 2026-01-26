@@ -41,4 +41,4 @@ public boolean checkFile() throws IOException {
         return mapper.readValue(file, String.class);
     }
 }
-// Надо не сразу в json а в дист и потом уже в json
+// Надо не сразу в json а в лист и потом уже в json

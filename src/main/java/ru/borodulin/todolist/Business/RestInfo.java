@@ -19,7 +19,7 @@ public class RestInfo {
     @GetMapping("/info")
     public List<Task> getInfo() throws Exception {
         Path path = Paths.get(getClass().getClassLoader().getResource("tasks.json").toURI());
-        return List.of(new JsonCreate().getInfo(path));
+        return List.of();
     }
     @PutMapping("/update")
     public void update(String title, String description, boolean isDone, String date, int id) {
@@ -31,4 +31,4 @@ public class RestInfo {
         }
     }
 }
-//Доделать логику рест + рефактор говнеца
+
