@@ -22,7 +22,7 @@ public class RestInfo {
     public List<Task> getInfo() throws Exception {
         Path path = Paths.get(getClass().getClassLoader().getResource("tasks.json").toURI());
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(Files.readAllBytes(path), new TypeReference<List<Task>>() {});
+        return mapper.readValue(path.toFile(), new TypeReference<List<Task>>() {});
     }
     @PutMapping("/update")
     public void update(String title, String description, boolean isDone, String date, int id) {

@@ -8,6 +8,8 @@ import ru.borodulin.todolist.Service.Task;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 @Component
@@ -15,10 +17,11 @@ public class CreateTask  implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        List<Task> tasksList = new ArrayList<>();
         JsonCreate jsonCreate = new JsonCreate();
         Scanner scanner = new Scanner(System.in);
 
-        while (!scanner.nextLine().equals("exit")){
+        while (true){
             System.out.println("Summary of the task: ");
             String title = scanner.nextLine();
             if(flagTrue(title)) break;
@@ -31,7 +34,8 @@ public class CreateTask  implements CommandLineRunner {
             System.out.println("Id of the task: ");
             int id = scanner.nextInt();
             System.out.println("If you want to exit, type exit");
-            jsonCreate.writeJson(new Task(title, description, false, date, id));
+            tasksList.add(new Task(title, description, false, date, id));
+            jsonCreate.writeJson(tasksList.get(tasksList.size() - 1));
         }
     }
     public boolean flagTrue(String title) {
