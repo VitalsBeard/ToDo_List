@@ -1,5 +1,7 @@
 package ru.borodulin.todolist.Business;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -19,7 +21,8 @@ public class RestInfo {
     @GetMapping("/info")
     public List<Task> getInfo() throws Exception {
         Path path = Paths.get(getClass().getClassLoader().getResource("tasks.json").toURI());
-        return List.of();
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(Files.readAllBytes(path), new TypeReference<List<Task>>() {});
     }
     @PutMapping("/update")
     public void update(String title, String description, boolean isDone, String date, int id) {

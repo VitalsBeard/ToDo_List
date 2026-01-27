@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Repository
@@ -16,6 +18,7 @@ public class JsonCreate {
 ObjectMapper mapper = new ObjectMapper();
 String path = "src/main/resources/tasks.json";
 File file = new File(path);
+List<Task> tasks = new ArrayList<>();
 
 public boolean checkFile() throws IOException {
     if (!file.exists()) {
@@ -28,7 +31,9 @@ public boolean checkFile() throws IOException {
 
     public void writeJson(Task task) throws IOException {
        if (checkFile()) {
-            mapper.writeValue(file, task);
+          tasks =  mapper.readValue(file, List.class);
+          tasks.add(task);
+          mapper.writeValue(file, task);
         } else {
             checkFile();
             mapper.writeValue(file, task);

@@ -19,25 +19,23 @@ public class CreateTask  implements CommandLineRunner {
         Scanner scanner = new Scanner(System.in);
 
         while (!scanner.nextLine().equals("exit")){
-            if(flagTrue(scanner)) break;
             System.out.println("Summary of the task: ");
             String title = scanner.nextLine();
-            if(flagTrue(scanner)) break;
+            if(flagTrue(title)) break;
             System.out.println("Description of the task: ");
             String description = scanner.nextLine();
-            if(flagTrue(scanner)) break;
+            if(flagTrue(description)) break;
             System.out.println("Date of the task: ");
             String date = scanner.nextLine();
-            if(flagTrue(scanner)) break;
+            if(flagTrue(date)) break;
             System.out.println("Id of the task: ");
             int id = scanner.nextInt();
-            if(flagTrue(scanner)) break;
             System.out.println("If you want to exit, type exit");
             jsonCreate.writeJson(new Task(title, description, false, date, id));
         }
     }
-    public boolean flagTrue(Scanner scanner) {
-        if (scanner.nextLine().equals("exit")){
+    public boolean flagTrue(String title) {
+        if (title.equals("exit")){
             return true;
         }
         return false;
