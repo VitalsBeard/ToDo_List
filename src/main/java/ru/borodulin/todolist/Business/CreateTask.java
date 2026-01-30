@@ -35,8 +35,9 @@ public class CreateTask  implements CommandLineRunner {
             int id = scanner.nextInt();
             System.out.println("If you want to exit, type exit");
             tasksList.add(new Task(title, description, false, date, id));
-            jsonCreate.writeJson(tasksList.get(tasksList.size() - 1));
+            scanner.skip("\n");
         }
+        jsonCreate.writeJson(tasksList);
     }
     public boolean flagTrue(String title) {
         if (title.equals("exit")){

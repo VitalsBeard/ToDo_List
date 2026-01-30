@@ -1,4 +1,4 @@
-package ru.borodulin.todolist;
+package java.ru.borodulin.todolist;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

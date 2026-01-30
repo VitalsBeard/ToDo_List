@@ -14,9 +14,7 @@ import java.time.LocalDateTime;
 public class TodoListApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TodoListApplication.class, args);
-		HttpClient client = HttpClient.newHttpClient();
-
+	SpringApplication.run(TodoListApplication.class, args);
 
 	}
 }
