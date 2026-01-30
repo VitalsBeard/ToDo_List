@@ -2,13 +2,6 @@ package ru.borodulin.todolist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import ru.borodulin.todolist.Data.JsonCreate;
-import ru.borodulin.todolist.Service.Task;
-import tools.jackson.databind.ext.javatime.ser.LocalDateTimeSerializer;
-
-import java.io.IOException;
-import java.net.http.HttpClient;
-import java.time.LocalDateTime;
 
 @SpringBootApplication
 public class TodoListApplication {

@@ -1,4 +1,4 @@
-package ru.borodulin.todolist.Service;
+package ru.borodulin.todolist.model;
 
 import java.time.LocalDateTime;
 
