@@ -32,8 +32,8 @@ public class TaskJsonRepository {
     public void writeJson(Task task) {
         try {
             checkFile();
-            Map<String, Object> map = mapper.readValue(file, new TypeReference<Map<String,Object>>(){});
-           taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>(){});//TODO инициализая нет , чек
+
+           taskArrayList = mapper.readValue(file, taskArrayList.getClass());//TODO инициализая нет , чек
             taskArrayList.add(task);
             mapper.writeValue(file, taskArrayList);
         } catch (IOException e) {
@@ -41,7 +41,7 @@ public class TaskJsonRepository {
         }
     }
     public List <Task> allTasks ()  {
-        taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>());
+        taskArrayList = mapper.readValue(file, taskArrayList.getClass());
         return taskArrayList;
     }
 
