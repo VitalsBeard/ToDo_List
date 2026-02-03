@@ -1,16 +1,22 @@
 package ru.borodulin.todolist.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.time.LocalDateTime;
 
 public class Task {
 
-    private  String title;
-    private  String description;
-    private  boolean completed;
-    private  LocalDateTime date ;
-    private  int id  ;
+    private String title;
+    private String description;
+    private boolean completed;
 
-    public Task (String title, String description, boolean completed, String date, int id) {
+    private LocalDateTime date;
+    private int id;
+
+    public Task() {
+    }
+
+    public Task(String title, String description, boolean completed, LocalDateTime date, int id) {
         this.title = title;
         this.description = description;
         this.completed = completed;
@@ -18,43 +24,55 @@ public class Task {
         this.id = id;
     }
 
-    public  String getTitle() {
+
+    public String getTitle() {
         return title;
     }
 
-    public  void setTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public  String getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public  void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public  boolean isCompleted() {
+    public boolean isCompleted() {
         return completed;
     }
 
-    public  void setCompleted(boolean completed) {
+    public void setCompleted(boolean completed) {
         this.completed = completed;
     }
 
-    public  LocalDateTime getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public  void setDate(LocalDateTime date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
-    public  int getId() {
+    public int getId() {
         return id;
     }
 
-    public  void setId(int id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", completed=" + completed +
+                ", date=" + date +
+                ", id=" + id +
+                '}';
     }
 }

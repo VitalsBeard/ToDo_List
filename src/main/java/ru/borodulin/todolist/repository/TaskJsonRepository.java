@@ -1,12 +1,13 @@
 package ru.borodulin.todolist.repository;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import org.springframework.stereotype.Repository;
 import ru.borodulin.todolist.model.Task;
+import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -28,20 +29,18 @@ public class TaskJsonRepository {
         }
     }
 
-
     public void writeJson(Task task) {
         try {
             checkFile();
-
-           taskArrayList = mapper.readValue(file, taskArrayList.getClass());//TODO инициализая нет , чек
-            taskArrayList.add(task);
-            mapper.writeValue(file, taskArrayList);
+         //   taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>() {});//TODO инициализая нет , чек
+         //   taskArrayList.add(task);
+         //   mapper.writeValue(file, taskArrayList);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public List <Task> allTasks ()  {
-        taskArrayList = mapper.readValue(file, taskArrayList.getClass());
+        taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>() {});
         return taskArrayList;
     }
 
