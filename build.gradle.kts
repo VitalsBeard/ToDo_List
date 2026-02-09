@@ -25,12 +25,17 @@ dependencies  {
 	implementation("org.springframework.boot:spring-boot-starter")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	implementation ("org.springframework.boot:spring-boot-starter-web")
+	//implementation("com.fasterxml.jackson.core:jackson-databind")
+///	implementation ("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.0")
+//	implementation ("com.fasterxml.jackson.core:jackson-core:2.18.0")
+//	implementation ("com.fasterxml.jackson.core:jackson-annotations:2.18.0")
+
 }
 
 
 
 
 
-tasks.withType<Test> {
-	useJUnitPlatform()
-}
+
+
