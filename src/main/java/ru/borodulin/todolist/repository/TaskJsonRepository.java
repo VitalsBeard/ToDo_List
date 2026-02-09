@@ -32,15 +32,23 @@ public class TaskJsonRepository {
     public void writeJson(Task task) {
         try {
             checkFile();
-         //   taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>() {});//TODO инициализая нет , чек
-         //   taskArrayList.add(task);
-         //   mapper.writeValue(file, taskArrayList);
+            if (file.length() == 0) {
+                taskArrayList = new ArrayList<>();
+            } else {
+                taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>() {});
+            }
+            taskArrayList.add(task);
+            mapper.writeValue(file, taskArrayList);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public List <Task> allTasks ()  {
-        taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>() {});
+
+    public List<Task> allTasks() {
+        taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>() {
+        });
+        System.out.println(taskArrayList);
         return taskArrayList;
     }
 
