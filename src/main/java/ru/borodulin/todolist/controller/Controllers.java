@@ -25,12 +25,25 @@ public class Controllers {
 
     public void create(@RequestBody Task task) {
         System.out.println(task);
-       taskService.createTask(task);
+        taskService.createTask(task);
     }
 
     @GetMapping("/getAll")
     public List<Task> getAll() {
         return taskService.getAll();
     }
+
+    @DeleteMapping ("/delete/{id}")
+    public void delete(@PathVariable int id){
+        taskService.delete(id);
+    }
+
+    @PutMapping ("/change/{id}")
+    public void change (@PathVariable int id, @RequestBody List<Task> task){
+        taskService.change(id, task);
+    }
+
 }
+
+
 

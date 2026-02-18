@@ -23,4 +23,12 @@ public class TaskService {
     public List<Task> getAll() {
         return  taskJsonRepository.allTasks();
     }
+
+    public void delete(int id) {
+        taskJsonRepository.delete(id);
+    }
+
+    public void change(int id, List<Task> task){
+        taskJsonRepository.change(id, task);
+    }
 }
