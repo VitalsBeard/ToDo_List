@@ -35,7 +35,8 @@ public class TaskJsonRepository {
             if (file.length() == 0) {
                 taskArrayList = new ArrayList<>();
             } else {
-                taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>() {});
+                taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>() {
+                });
             }
             taskArrayList.add(task);
             mapper.writeValue(file, taskArrayList);
@@ -52,8 +53,31 @@ public class TaskJsonRepository {
         return taskArrayList;
     }
 
+    public List<Task> delete(int id) {
+        taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>() {
+        });
+        for (int i = 0; i < taskArrayList.size(); i++) {
+            if (taskArrayList.get(i).getId() == id) {
+                taskArrayList.remove(i);
+            }
+        }
+        mapper.writeValue(file, taskArrayList);
+        return taskArrayList;
+    }
+
+    public List<Task> change(int id, List<Task> task) {
+        taskArrayList = mapper.readValue(file, new TypeReference<List<Task>>() {
+        });
+        for (int i = 0; i < taskArrayList.size(); i++) {
+            if (taskArrayList.get(i).getId() == id) {
+                taskArrayList.remove(i);
+                taskArrayList.set(id, task.get(0));
+            }
+            mapper.writeValue(file, taskArrayList);
+
+        }
+        return taskArrayList;
+    }
 
 }
-
-
 // Надо не сразу в json а в лист и потом уже в json
